@@ -4,9 +4,7 @@ A backend service that identifies and tracks customers across multiple purchases
 
 ## Hosted Endpoint
 
-> **URL**: `https://YOUR-APP-NAME.onrender.com/identify`
-
-_(Update this after deploying)_
+> **URL**: `https://bitespeed-identity-reconciliation-9n03.onrender.com/identify`
 
 ---
 
@@ -132,17 +130,17 @@ At least one field must be provided.
 
 ```bash
 # New customer
-curl -X POST https://YOUR-APP.onrender.com/identify \
+curl -X POST https://bitespeed-identity-reconciliation-9n03.onrender.com/identify \
   -H "Content-Type: application/json" \
   -d '{"email": "lorraine@hillvalley.edu", "phoneNumber": "123456"}'
 
 # Link by phone (creates secondary)
-curl -X POST https://YOUR-APP.onrender.com/identify \
+curl -X POST https://bitespeed-identity-reconciliation-9n03.onrender.com/identify \
   -H "Content-Type: application/json" \
   -d '{"email": "mcfly@hillvalley.edu", "phoneNumber": "123456"}'
 
 # Lookup by email only
-curl -X POST https://YOUR-APP.onrender.com/identify \
+curl -X POST https://bitespeed-identity-reconciliation-9n03.onrender.com/identify \
   -H "Content-Type: application/json" \
   -d '{"email": "lorraine@hillvalley.edu"}'
 ```
