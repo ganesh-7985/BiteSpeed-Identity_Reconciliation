@@ -22,33 +22,22 @@ A backend service that identifies and tracks customers across multiple purchases
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/bitespeed.git
-cd bitespeed
+git clone https://github.com/ganesh-7985/BiteSpeed-Identity_Reconciliation.git
+cd BiteSpeed-Identity_Reconciliation
 npm install
 ```
 
-### 2. Set Up Local Database
-
-For local dev, you can use SQLite. Edit `prisma/schema.prisma`:
-
-```prisma
-datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
-}
-```
-
-### 3. Create `.env` File
+### 2. Create `.env` File
 
 ```bash
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="postgresql://username:password@host/database?sslmode=require"
 PORT=3000
 ```
 
-### 4. Run Migrations & Start
+### 3. Sync Database & Start
 
 ```bash
-npx prisma migrate dev --name init
+npx prisma db push
 npm run dev
 ```
 
@@ -62,41 +51,22 @@ Server runs at `http://localhost:3000`
 
 1. Go to [neon.tech](https://neon.tech) and sign up (free tier)
 2. Create a new project
-3. Copy the connection string:
-   ```
-   postgresql://username:password@host/database?sslmode=require
-   ```
+3. Copy the connection string
 
-### Step 2: Push Code to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/YOUR_USERNAME/bitespeed.git
-git branch -M main
-git push -u origin main
-```
-
-### Step 3: Deploy on Render
+### Step 2: Deploy on Render
 
 1. Go to [render.com](https://render.com) and sign up
 2. Click **New** → **Web Service**
 3. Connect your GitHub repo
 4. Configure:
-   - **Name**: `bitespeed-identity`
+   - **Name**: `bitespeed-identity-reconciliation`
    - **Runtime**: `Node`
-   - **Build Command**: `npm install && npm run build && npm run render:migrate`
+   - **Build Command**: `npm install && npm run build`
    - **Start Command**: `npm start`
 5. Add Environment Variable:
    - **Key**: `DATABASE_URL`
    - **Value**: Your Neon connection string
 6. Click **Create Web Service**
-
-Deployment takes 2-3 minutes. Your endpoint will be:
-```
-https://bitespeed-identity.onrender.com/identify
-```
 
 ---
 
