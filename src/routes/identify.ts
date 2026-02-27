@@ -3,6 +3,17 @@ import { identifyContact } from "../services/contact";
 
 const router = Router();
 
+router.get("/", (_req: Request, res: Response): void => {
+  res.status(200).json({
+    message: "Bitespeed Identity Reconciliation API",
+    usage: "Send a POST request with JSON body: { email?: string, phoneNumber?: string }",
+    example: {
+      email: "doc@hillvalley.edu",
+      phoneNumber: "1985"
+    }
+  });
+});
+
 router.post("/", async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, phoneNumber } = req.body;
